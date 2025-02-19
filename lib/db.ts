@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI! ;
@@ -25,5 +26,13 @@ export async function connectToDatabase (){
     cached.promise = mongoose.connect(MONGODB_URI,opts).then(() => mongoose.connection);
         
 }  
+try {
+    cached.conn = await cached.promise;
+   
+} catch (error) {
+    cached.promise = null;
+    throw new Error("failed connect to database");
+}
+return cached.conn;
 }
 
