@@ -34,7 +34,6 @@ export async function POST(request: NextRequest) {
     await connectToDatabase();
     const body: IVideo = await request.json();
 
-    // Validate required fields
     if (
       !body.title ||
       !body.description ||
@@ -47,7 +46,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create new video with default values
     const videoData = {
       ...body,
       controls: body.controls ?? true,

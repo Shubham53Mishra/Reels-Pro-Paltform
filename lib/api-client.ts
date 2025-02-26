@@ -38,6 +38,10 @@ class ApiClient {
   }
 
   async getVideo(id: string) {
+    if (!id) {
+      throw new Error("Video ID is required");
+    }
+    console.log("Fetching video with ID:", id); // ✅ Debugging
     return this.fetch<IVideo>(`/videos/${id}`);
   }
 

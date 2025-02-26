@@ -1,12 +1,11 @@
- /* eslint-disable no-var */
- import{Connection} from 'mongoose'
- 
+/* eslint-disable no-var */
+import { Connection } from "mongoose";
 
 declare global {
-    
-    var mongoose: {
-      conn:connection|null
-      promise: promise<Connection> | null
-    }
+  var mongoose: {
+    conn: Connection | null;
+    promise: Promise<Connection> | null;
+  };
 }
-export {}
+
+export {};
